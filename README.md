@@ -19,4 +19,14 @@ Gerçek Android kaynak projesidir. GeckoView tabanlıdır ve rootsuz çalışaca
 
 Android Studio Ladybug veya daha yeni sürümde projeyi açın, Gradle senkronizasyonunu tamamlayın ve **Build → Build APK(s)** seçin. Komut satırında Android SDK ve Gradle kuruluysa `gradle assembleDebug` kullanılabilir.
 
-Bu ilk mühendislik iskeleti; VPN, seri port, dosya görüntüleyici, indirme yöneticisi ve parola kasasının üretim kodları sonraki modüller olarak tamamlanmalıdır.
+## v0.2 modülleri
+
+- Masaüstü/mobil kullanıcı aracısı geçişi
+- Gizli Gecko oturumu
+- Sesli arama ve ayarlanabilir arama motoru
+- Android belge seçiciyle tüm dosya türlerini açma
+- Kalıcı indirme klasörü seçimi
+- Sayfa paylaşımı, yenileme ve ana sayfa ayarı
+- FoxKeyboard etkinleştirme ve seçme ekranına doğrudan geçiş
+
+Bu sürüm halen mühendislik prototipidir. Android VPN, gerçek indirme yönlendirme motoru, parola kasası, seri port sürücüleri, arşiv/Office görüntüleyicileri ve Firefox WebExtension katmanı sonraki modüllerdir.
