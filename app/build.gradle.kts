@@ -3,7 +3,7 @@ plugins { id("com.android.application"); id("org.jetbrains.kotlin.android") }
 android {
     namespace = "com.foxbrowser.mobile"
     compileSdk = 35
-    defaultConfig { applicationId = "com.foxbrowser.mobile"; minSdk = 26; targetSdk = 35; versionCode = 100; versionName = "1.00" }
+    defaultConfig { applicationId = "com.foxbrowser.mobile"; minSdk = 26; targetSdk = 35; versionCode = 101; versionName = "1.01" }
     buildFeatures { viewBinding = true }
     compileOptions { sourceCompatibility = JavaVersion.VERSION_17; targetCompatibility = JavaVersion.VERSION_17 }
     kotlinOptions { jvmTarget = "17" }
