@@ -5,5 +5,19 @@
         <Button android:id="@+id/go" android:layout_width="wrap_content" android:layout_height="42dp" android:text="Git"/>
     </LinearLayout>
     <HorizontalScrollView android:layout_width="match_parent" android:layout_height="44dp" android:fillViewport="true"><LinearLayout android:id="@+id/functionKeys" android:layout_width="wrap_content" android:layout_height="match_parent" android:orientation="horizontal" android:paddingHorizontal="4dp"/></HorizontalScrollView>
+    <HorizontalScrollView android:layout_width="match_parent" android:layout_height="48dp" android:fillViewport="true">
+        <LinearLayout android:layout_width="wrap_content" android:layout_height="match_parent" android:orientation="horizontal" android:paddingHorizontal="4dp">
+            <Button android:id="@+id/home" android:layout_width="wrap_content" android:layout_height="44dp" android:text="Ana sayfa"/>
+            <Button android:id="@+id/refresh" android:layout_width="wrap_content" android:layout_height="44dp" android:text="Yenile"/>
+            <Button android:id="@+id/desktop" android:layout_width="wrap_content" android:layout_height="44dp" android:text="Masaüstü"/>
+            <Button android:id="@+id/privateMode" android:layout_width="wrap_content" android:layout_height="44dp" android:text="Gizli"/>
+            <Button android:id="@+id/voice" android:layout_width="wrap_content" android:layout_height="44dp" android:text="Sesli ara"/>
+            <Button android:id="@+id/openFile" android:layout_width="wrap_content" android:layout_height="44dp" android:text="Dosya aç"/>
+            <Button android:id="@+id/downloadFolder" android:layout_width="wrap_content" android:layout_height="44dp" android:text="İndirme yolu"/>
+            <Button android:id="@+id/share" android:layout_width="wrap_content" android:layout_height="44dp" android:text="Paylaş"/>
+            <Button android:id="@+id/keyboard" android:layout_width="wrap_content" android:layout_height="44dp" android:text="Klavye"/>
+            <Button android:id="@+id/settings" android:layout_width="wrap_content" android:layout_height="44dp" android:text="Ayarlar"/>
+        </LinearLayout>
+    </HorizontalScrollView>
     <org.mozilla.geckoview.GeckoView android:id="@+id/geckoView" android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1"/>
 </LinearLayout>
