@@ -28,5 +28,6 @@ Android Studio Ladybug veya daha yeni sürümde projeyi açın, Gradle senkroniz
 - Kalıcı indirme klasörü seçimi
 - Sayfa paylaşımı, yenileme ve ana sayfa ayarı
 - FoxKeyboard etkinleştirme ve seçme ekranına doğrudan geçiş
+- FoxTerminal: uygulama korumalı alanında yerel `sh` komutları ve kurulu Termux'u açma
 
 Bu sürüm halen mühendislik prototipidir. Android VPN, gerçek indirme yönlendirme motoru, parola kasası, seri port sürücüleri, arşiv/Office görüntüleyicileri ve Firefox WebExtension katmanı sonraki modüllerdir.
