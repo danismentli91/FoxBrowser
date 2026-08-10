@@ -6,6 +6,8 @@
     <uses-permission android:name="android.permission.READ_MEDIA_IMAGES"/>
     <uses-permission android:name="android.permission.READ_MEDIA_VIDEO"/>
     <uses-permission android:name="android.permission.READ_MEDIA_AUDIO"/>
+    <uses-permission android:name="com.termux.permission.RUN_COMMAND"/>
+    <queries><package android:name="com.termux"/></queries>
     <uses-feature android:name="android.hardware.usb.host" android:required="false"/>
     <application android:theme="@style/Theme.FoxBrowser" android:label="FoxBrowser" android:usesCleartextTraffic="false">
         <activity android:name=".MainActivity" android:screenOrientation="unspecified" android:exported="true">
@@ -13,6 +15,7 @@
             <intent-filter><action android:name="android.intent.action.VIEW"/><category android:name="android.intent.category.DEFAULT"/><category android:name="android.intent.category.BROWSABLE"/><data android:scheme="http"/><data android:scheme="https"/></intent-filter>
         </activity>
         <activity android:name=".SettingsActivity" android:exported="false"/>
+        <activity android:name=".TerminalActivity" android:exported="false"/>
         <service android:name=".keyboard.FoxKeyboardService" android:label="FoxKeyboard" android:permission="android.permission.BIND_INPUT_METHOD" android:exported="true">
             <intent-filter><action android:name="android.view.InputMethod"/></intent-filter>
             <meta-data android:name="android.view.im" android:resource="@xml/input_method"/>
