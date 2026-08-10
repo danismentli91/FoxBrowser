@@ -1,0 +1,1 @@
+<input-method xmlns:android="http://schemas.android.com/apk/res/android"><subtype android:label="FoxKeyboard Türkçe" android:imeSubtypeLocale="tr_TR" android:imeSubtypeMode="keyboard"/><subtype android:label="FoxKeyboard English" android:imeSubtypeLocale="en_US" android:imeSubtypeMode="keyboard"/></input-method>
