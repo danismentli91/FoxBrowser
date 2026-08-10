@@ -74,10 +74,22 @@ class MainActivity : AppCompatActivity() {
         binding.settings.setOnClickListener { startActivity(Intent(this, SettingsActivity::class.java)) }
         binding.quickWeb.setOnClickListener { navigate(homeUrl()) }
         binding.quickWhatsApp.setOnClickListener { navigate("https://web.whatsapp.com") }
+        binding.quickYoutube.setOnClickListener { navigate("https://www.youtube.com") }
+        binding.quickCamera.setOnClickListener { navigate("http://192.168.1.1") }
+        binding.quickTranslate.setOnClickListener { navigate("https://translate.google.com/?sl=auto&tl=tr") }
         binding.quickTerminal.setOnClickListener { startActivity(Intent(this,TerminalActivity::class.java)) }
         binding.quickFiles.setOnClickListener { filePicker.launch(arrayOf("*/*")) }
+        binding.quickPdf.setOnClickListener { Toast.makeText(this,"Web sayfasında menüden Yazdır > PDF olarak kaydet seçin",Toast.LENGTH_LONG).show() }
+        binding.quickDownloads.setOnClickListener { folderPicker.launch(null) }
+        binding.quickOtg.setOnClickListener { startActivity(Intent(this,SettingsActivity::class.java)) }
+        binding.quickEsp.setOnClickListener { navigate("https://espressif.github.io/esptool-js/") }
         binding.quickKeyboard.setOnClickListener { startActivity(Intent(Settings.ACTION_INPUT_METHOD_SETTINGS)); binding.root.postDelayed({(getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager).showInputMethodPicker()},700) }
         binding.quickSettings.setOnClickListener { startActivity(Intent(this,SettingsActivity::class.java)) }
+        binding.bottomHome.setOnClickListener { showDashboard() }
+        binding.bottomTerminal.setOnClickListener { startActivity(Intent(this,TerminalActivity::class.java)) }
+        binding.bottomNew.setOnClickListener { showDashboard() }
+        binding.bottomFiles.setOnClickListener { filePicker.launch(arrayOf("*/*")) }
+        binding.bottomMenu.setOnClickListener { startActivity(Intent(this,SettingsActivity::class.java)) }
         if(intent.dataString!=null) navigate(intent.dataString!!) else showDashboard()
     }
 
