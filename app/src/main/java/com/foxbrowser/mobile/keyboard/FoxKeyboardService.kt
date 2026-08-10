@@ -22,7 +22,7 @@ class FoxKeyboardService : InputMethodService() {
     }
     private fun buildFunctionRow(row:LinearLayout) {
         row.removeAllViews(); row.addView(smallKey("Esc"){send(KeyEvent.KEYCODE_ESCAPE)})
-        row.addView(smallKey("Ctrl",{ctrlLocked=!ctrlLocked;buildFunctionRow(row)},ctrlLocked)); row.addView(smallKey("Alt",{altLocked=!altLocked;buildFunctionRow(row)},altLocked))
+        row.addView(smallKey("Ctrl",ctrlLocked){ctrlLocked=!ctrlLocked;buildFunctionRow(row)}); row.addView(smallKey("Alt",altLocked){altLocked=!altLocked;buildFunctionRow(row)})
         row.addView(smallKey("Tab"){send(KeyEvent.KEYCODE_TAB)}); (1..12).forEach { n->row.addView(smallKey("F$n"){send(KeyEvent.KEYCODE_F1+n-1)}) }
     }
     private fun buildKeyboard() {
@@ -37,7 +37,7 @@ class FoxKeyboardService : InputMethodService() {
     }
     private fun newRow()=LinearLayout(this).apply{orientation=LinearLayout.HORIZONTAL}
     private fun key(label:String,weight:Float,black:Boolean=false,selected:Boolean=false,action:()->Unit)=Button(this).apply{text=label;setTextColor(Color.WHITE);textSize=13f;minWidth=0;setPadding(1,0,1,0);background=box(if(black)Color.BLACK else if(selected)0xFFB35A24.toInt() else 0xFF6D4C41.toInt());layoutParams=LinearLayout.LayoutParams(0,48.dp,weight).apply{setMargins(2,2,2,2)};setOnClickListener{action()}}
-    private fun smallKey(label:String,action:()->Unit,selected:Boolean=false)=Button(this).apply{text=label;setTextColor(Color.WHITE);textSize=12f;minWidth=56.dp;setPadding(8,0,8,0);background=box(if(selected)0xFFB35A24.toInt()else 0xFF6D4C41.toInt());setOnClickListener{action()};layoutParams=LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,44.dp).apply{setMargins(2,2,2,2)}}
+    private fun smallKey(label:String,selected:Boolean=false,action:()->Unit)=Button(this).apply{text=label;setTextColor(Color.WHITE);textSize=12f;minWidth=56.dp;setPadding(8,0,8,0);background=box(if(selected)0xFFB35A24.toInt()else 0xFF6D4C41.toInt());setOnClickListener{action()};layoutParams=LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,44.dp).apply{setMargins(2,2,2,2)}}
     private fun box(color:Int)=GradientDrawable().apply{setColor(color);cornerRadius=7.dp.toFloat();setStroke(1.dp,0xFF9E7A6D.toInt())};private val Int.dp get()=(this*resources.displayMetrics.density).toInt()
     private fun type(text:String){if(ctrlLocked||altLocked){val c=text.lowercase().firstOrNull();val code=if(c!=null&&c in 'a'..'z')KeyEvent.KEYCODE_A+(c-'a')else 0;if(code!=0)send(code)else commit(text)}else commit(text);typed=if(text==" ")"" else if(text.length==1&&text[0].isLetter())typed+text.lowercase()else "";if(shifted){shifted=false;buildKeyboard()};updateSuggestions()}
     private fun commit(text:String){currentInputConnection?.commitText(text,1)};fun commitVoice(text:String){commit(text);typed="";updateSuggestions()}
