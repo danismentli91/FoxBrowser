@@ -16,6 +16,7 @@
         </activity>
         <activity android:name=".SettingsActivity" android:exported="false"/>
         <activity android:name=".TerminalActivity" android:exported="false"/>
+        <activity android:name=".keyboard.VoiceInputActivity" android:exported="false" android:theme="@style/Theme.AppCompat.Dialog"/>
         <service android:name=".keyboard.FoxKeyboardService" android:label="FoxKeyboard" android:permission="android.permission.BIND_INPUT_METHOD" android:exported="true">
             <intent-filter><action android:name="android.view.InputMethod"/></intent-filter>
             <meta-data android:name="android.view.im" android:resource="@xml/input_method"/>

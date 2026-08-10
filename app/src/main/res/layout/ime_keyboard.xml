@@ -1,4 +1,5 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:background="#111820" android:padding="4dp">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:background="#050505" android:padding="4dp">
     <HorizontalScrollView android:layout_width="match_parent" android:layout_height="48dp"><LinearLayout android:id="@+id/imeFunctions" android:layout_width="wrap_content" android:layout_height="match_parent" android:orientation="horizontal"/></HorizontalScrollView>
+    <LinearLayout android:id="@+id/imeSuggestions" android:layout_width="match_parent" android:layout_height="48dp" android:orientation="horizontal" android:background="#1B110E"/>
     <LinearLayout android:id="@+id/imeKeyboardRows" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical"/>
 </LinearLayout>

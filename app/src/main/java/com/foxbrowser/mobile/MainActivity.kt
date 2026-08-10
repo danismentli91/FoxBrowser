@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.provider.Settings
 import android.speech.RecognizerIntent
 import android.view.KeyEvent
+import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.Toast
@@ -46,8 +47,8 @@ class MainActivity : AppCompatActivity() {
         openSession(false)
         binding.go.setOnClickListener { navigate(binding.address.text.toString()) }
         binding.address.setOnEditorActionListener { _,_,_-> navigate(binding.address.text.toString()); true }
-        binding.back.setOnClickListener { session.goBack() }
-        binding.home.setOnClickListener { navigate(homeUrl()) }
+        binding.back.setOnClickListener { if(binding.homeDashboard.visibility==View.GONE) showDashboard() else session.goBack() }
+        binding.home.setOnClickListener { showDashboard() }
         binding.refresh.setOnClickListener { session.reload() }
         binding.desktop.setOnClickListener {
             desktopMode = !desktopMode
@@ -59,7 +60,7 @@ class MainActivity : AppCompatActivity() {
             privateMode = !privateMode
             openSession(privateMode)
             binding.privateMode.text = if (privateMode) "Gizliden çık" else "Gizli"
-            navigate(homeUrl())
+            showDashboard()
         }
         binding.voice.setOnClickListener { startVoiceSearch() }
         binding.openFile.setOnClickListener { filePicker.launch(arrayOf("*/*")) }
@@ -71,7 +72,13 @@ class MainActivity : AppCompatActivity() {
         }
         binding.terminal.setOnClickListener { startActivity(Intent(this, TerminalActivity::class.java)) }
         binding.settings.setOnClickListener { startActivity(Intent(this, SettingsActivity::class.java)) }
-        navigate(intent.dataString ?: "https://www.google.com")
+        binding.quickWeb.setOnClickListener { navigate(homeUrl()) }
+        binding.quickWhatsApp.setOnClickListener { navigate("https://web.whatsapp.com") }
+        binding.quickTerminal.setOnClickListener { startActivity(Intent(this,TerminalActivity::class.java)) }
+        binding.quickFiles.setOnClickListener { filePicker.launch(arrayOf("*/*")) }
+        binding.quickKeyboard.setOnClickListener { startActivity(Intent(Settings.ACTION_INPUT_METHOD_SETTINGS)); binding.root.postDelayed({(getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager).showInputMethodPicker()},700) }
+        binding.quickSettings.setOnClickListener { startActivity(Intent(this,SettingsActivity::class.java)) }
+        if(intent.dataString!=null) navigate(intent.dataString!!) else showDashboard()
     }
 
     private fun openSession(isPrivate: Boolean) {
@@ -95,7 +102,10 @@ class MainActivity : AppCompatActivity() {
         val text=raw.trim()
         val engine=getSharedPreferences("fox",MODE_PRIVATE).getString("search", "https://www.google.com/search?q=") ?: "https://www.google.com/search?q="
         val url=if(text.startsWith("http://")||text.startsWith("https://")||text.startsWith("content://")) text else engine+Uri.encode(text)
+        binding.homeDashboard.visibility=View.GONE; binding.geckoView.visibility=View.VISIBLE
         currentUrl=url; session.loadUri(url); binding.address.setText(url)
     }
+
+    private fun showDashboard(){ binding.geckoView.visibility=View.GONE;binding.homeDashboard.visibility=View.VISIBLE;binding.address.setText("");currentUrl="FoxBrowser Ana Sayfa" }
 
 }
