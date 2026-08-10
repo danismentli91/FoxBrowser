@@ -70,6 +70,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(Settings.ACTION_INPUT_METHOD_SETTINGS))
             binding.root.postDelayed({ (getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager).showInputMethodPicker() }, 700)
         }
+        binding.terminal.setOnClickListener { startActivity(Intent(this, TerminalActivity::class.java)) }
         binding.settings.setOnClickListener { startActivity(Intent(this, SettingsActivity::class.java)) }
         navigate(intent.dataString ?: "https://www.google.com")
     }
