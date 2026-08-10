@@ -1,5 +1,12 @@
 # FoxBrowser Android
 
+## v1.00
+
+- Mor tilki uygulama simgesi ve tarayıcı marka ikonu
+- Türkçe QWERTY FoxKeyboard; boşluk, silme, Enter ve Shift
+- FoxKeyboard açıldığında Esc/Ctrl/Alt/Tab ve F1-F12 fonksiyon şeridi
+- Geliştirilmiş klavye, arama motoru, ana sayfa, görünüm ve gizlilik ayarları
+
 Gerçek Android kaynak projesidir. GeckoView tabanlıdır ve rootsuz çalışacak şekilde tasarlanmıştır.
 
 ## Klavye

@@ -44,7 +44,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater); setContentView(binding.root)
         openSession(false)
-        installFunctionRow()
         binding.go.setOnClickListener { navigate(binding.address.text.toString()) }
         binding.address.setOnEditorActionListener { _,_,_-> navigate(binding.address.text.toString()); true }
         binding.back.setOnClickListener { session.goBack() }
@@ -99,9 +98,4 @@ class MainActivity : AppCompatActivity() {
         currentUrl=url; session.loadUri(url); binding.address.setText(url)
     }
 
-    private fun installFunctionRow() {
-        val keys=listOf("Esc" to KeyEvent.KEYCODE_ESCAPE,"Ctrl" to KeyEvent.KEYCODE_CTRL_LEFT,"Alt" to KeyEvent.KEYCODE_ALT_LEFT,"Tab" to KeyEvent.KEYCODE_TAB)+
-            (1..12).map { "F$it" to (KeyEvent.KEYCODE_F1+it-1) }
-        keys.forEach { (label,code)-> binding.functionKeys.addView(Button(this).apply { text=label; minWidth=0; setOnClickListener { binding.geckoView.dispatchKeyEvent(KeyEvent(KeyEvent.ACTION_DOWN,code)); binding.geckoView.dispatchKeyEvent(KeyEvent(KeyEvent.ACTION_UP,code)) } }) }
-    }
 }

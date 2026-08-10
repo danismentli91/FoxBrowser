@@ -9,7 +9,7 @@
     <uses-permission android:name="com.termux.permission.RUN_COMMAND"/>
     <queries><package android:name="com.termux"/></queries>
     <uses-feature android:name="android.hardware.usb.host" android:required="false"/>
-    <application android:theme="@style/Theme.FoxBrowser" android:label="FoxBrowser" android:usesCleartextTraffic="false">
+    <application android:theme="@style/Theme.FoxBrowser" android:label="FoxBrowser" android:icon="@mipmap/ic_launcher" android:roundIcon="@mipmap/ic_launcher_round" android:usesCleartextTraffic="false">
         <activity android:name=".MainActivity" android:screenOrientation="unspecified" android:exported="true">
             <intent-filter><action android:name="android.intent.action.MAIN"/><category android:name="android.intent.category.LAUNCHER"/></intent-filter>
             <intent-filter><action android:name="android.intent.action.VIEW"/><category android:name="android.intent.category.DEFAULT"/><category android:name="android.intent.category.BROWSABLE"/><data android:scheme="http"/><data android:scheme="https"/></intent-filter>
